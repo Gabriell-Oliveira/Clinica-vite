@@ -1,0 +1,313 @@
+/* src/styles/global.css */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+/* ── RESET & BASE ─────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --primary:        #1a6fb5;
+  --primary-light:  #e8f4fd;
+  --primary-mid:    #4a9fd4;
+  --teal:           #0d9488;
+  --teal-light:     #e0f7f5;
+  --bg:             #f0f5fa;
+  --white:          #ffffff;
+  --border:         #d4e4f0;
+  --text:           #1e2d3d;
+  --text-secondary: #5a7a95;
+  --text-muted:     #8baab8;
+  --success:        #059669;
+  --success-light:  #d1fae5;
+  --warning:        #d97706;
+  --warning-light:  #fef3c7;
+  --danger:         #dc2626;
+  --danger-light:   #fee2e2;
+  --sidebar:        #0f2d4a;
+  --sidebar-hover:  #1a4a70;
+  --sidebar-active: #1d6fa8;
+  --radius:         12px;
+  --radius-sm:      8px;
+  --shadow:         0 2px 12px rgba(26,111,181,0.08);
+}
+
+html, body { height: 100%; font-size: 16px; }
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+}
+
+#root { height: 100%; }
+
+/* ── LAYOUT ───────────────────────────────────────────────── */
+.layout      { display: flex; min-height: 100vh; }
+.main        { margin-left: 240px; flex: 1; display: flex; flex-direction: column; min-height: 100vh; }
+.content     { padding: 28px 32px; flex: 1; }
+
+/* ── SIDEBAR ──────────────────────────────────────────────── */
+.sidebar {
+  width: 240px;
+  background: var(--sidebar);
+  display: flex; flex-direction: column;
+  position: fixed; top: 0; left: 0; height: 100vh;
+  z-index: 100;
+}
+.sidebar-logo {
+  padding: 24px 20px 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.sidebar-logo h1  { font-size: 18px; font-weight: 700; color: #fff; letter-spacing: -0.3px; }
+.sidebar-logo span { font-size: 11px; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 0.5px; }
+.sidebar-nav  { flex: 1; padding: 16px 12px; }
+.sidebar-footer { padding: 16px 12px; border-top: 1px solid rgba(255,255,255,0.08); }
+.nav-section-title {
+  font-size: 10px; font-weight: 600;
+  color: rgba(255,255,255,0.3);
+  text-transform: uppercase; letter-spacing: 1px;
+  padding: 0 8px; margin: 16px 0 6px;
+}
+.nav-item {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 12px; border-radius: 8px;
+  cursor: pointer; transition: background 0.15s;
+  color: rgba(255,255,255,0.65);
+  font-size: 14px; font-weight: 500;
+  margin-bottom: 2px;
+  border: none; background: none;
+  width: 100%; text-align: left;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+.nav-item:hover  { background: var(--sidebar-hover); color: #fff; }
+.nav-item.active { background: var(--sidebar-active); color: #fff; }
+
+/* ── TOPBAR ───────────────────────────────────────────────── */
+.topbar {
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  padding: 0 32px; height: 60px;
+  display: flex; align-items: center; justify-content: space-between;
+  position: sticky; top: 0; z-index: 50;
+}
+.topbar-title  { font-size: 16px; font-weight: 600; }
+.topbar-badge  {
+  background: var(--primary-light); color: var(--primary);
+  font-size: 12px; font-weight: 600;
+  padding: 4px 10px; border-radius: 20px;
+}
+.topbar-user {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 13px; color: var(--text-secondary);
+}
+
+/* ── CARDS ────────────────────────────────────────────────── */
+.card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+}
+.card + .card  { margin-top: 16px; }
+
+/* ── STAT CARDS ───────────────────────────────────────────── */
+.stats-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-bottom: 28px; }
+.stat-card {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 20px;
+  display: flex; align-items: center; gap: 16px;
+}
+.stat-icon {
+  width: 46px; height: 46px; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.stat-label { font-size: 12px; color: var(--text-secondary); font-weight: 500; margin-bottom: 4px; }
+.stat-value { font-size: 26px; font-weight: 700; color: var(--text); line-height: 1; }
+
+/* ── BADGES ───────────────────────────────────────────────── */
+.badge { font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 20px; white-space: nowrap; }
+.badge-active { background: var(--teal-light);    color: var(--teal);    }
+.badge-done   { background: var(--success-light); color: var(--success); }
+
+/* ── PROGRESS ─────────────────────────────────────────────── */
+.progress-bar-bg {
+  width: 100%; height: 7px;
+  background: var(--bg); border-radius: 99px; overflow: hidden;
+}
+.progress-bar-fill {
+  height: 100%; border-radius: 99px;
+  background: linear-gradient(90deg, var(--primary-mid), var(--teal));
+  transition: width 0.4s ease;
+}
+
+/* ── SEARCH ───────────────────────────────────────────────── */
+.search-wrap { position: relative; margin-bottom: 24px; }
+.search-wrap input {
+  width: 100%; padding: 12px 16px 12px 44px;
+  border: 1.5px solid var(--border); border-radius: 10px;
+  font-size: 14px; font-family: 'Plus Jakarta Sans', sans-serif;
+  background: var(--white); color: var(--text); outline: none;
+  transition: border-color 0.15s;
+}
+.search-wrap input:focus    { border-color: var(--primary); }
+.search-wrap input::placeholder { color: var(--text-muted); }
+.search-icon {
+  position: absolute; left: 14px; top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted); pointer-events: none;
+}
+
+/* ── PATIENT CARD ─────────────────────────────────────────── */
+.patient-card {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 18px 20px;
+  margin-bottom: 12px; cursor: pointer;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.patient-card:hover { border-color: var(--primary-mid); box-shadow: var(--shadow); }
+.patient-card-top {
+  display: flex; align-items: flex-start;
+  justify-content: space-between; margin-bottom: 12px;
+}
+.patient-info { display: flex; align-items: center; gap: 12px; }
+.avatar {
+  width: 40px; height: 40px; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; font-weight: 700; flex-shrink: 0;
+  background: var(--primary-light); color: var(--primary);
+}
+.avatar-lg {
+  width: 56px; height: 56px; border-radius: 12px;
+  background: var(--primary-light); color: var(--primary);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; font-weight: 700; flex-shrink: 0;
+}
+.patient-name  { font-size: 15px; font-weight: 600; }
+.patient-meta  { font-size: 12px; color: var(--text-secondary); margin-top: 2px; }
+
+/* ── FORM ─────────────────────────────────────────────────── */
+.form-grid  { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-group { display: flex; flex-direction: column; gap: 6px; }
+.form-group.full { grid-column: 1 / -1; }
+.form-label {
+  font-size: 12px; font-weight: 600; color: var(--text-secondary);
+  text-transform: uppercase; letter-spacing: 0.4px;
+}
+.form-input {
+  padding: 10px 14px; border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm); font-size: 14px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: var(--text); background: var(--white); outline: none;
+  transition: border-color 0.15s;
+}
+.form-input:focus         { border-color: var(--primary); }
+.form-input.error         { border-color: var(--danger); }
+.form-input::placeholder  { color: var(--text-muted); }
+.form-input-error { font-size: 11px; color: var(--danger); margin-top: 2px; }
+select.form-input  { cursor: pointer; }
+textarea.form-input { resize: vertical; min-height: 80px; }
+
+/* ── BUTTONS ──────────────────────────────────────────────── */
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 10px 20px; border-radius: var(--radius-sm);
+  font-size: 14px; font-weight: 600;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  cursor: pointer; border: none;
+  transition: opacity 0.15s, transform 0.1s;
+}
+.btn:hover   { opacity: 0.9; }
+.btn:active  { transform: scale(0.98); }
+.btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.btn-primary  { background: var(--primary);       color: #fff; }
+.btn-secondary{ background: var(--primary-light); color: var(--primary); }
+.btn-outline  { background: transparent; color: var(--primary); border: 1.5px solid var(--border); }
+.btn-danger   { background: var(--danger-light);  color: var(--danger); }
+.btn-sm       { padding: 7px 14px; font-size: 13px; }
+
+/* ── SECTION HEADER ───────────────────────────────────────── */
+.section-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
+.section-title  { font-size: 18px; font-weight: 700; }
+.section-subtitle { font-size: 13px; color: var(--text-secondary); margin-top: 2px; }
+
+/* ── TABLE ────────────────────────────────────────────────── */
+.table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.table th {
+  text-align: left; padding: 8px 12px;
+  font-size: 11px; font-weight: 600;
+  color: var(--text-muted); text-transform: uppercase;
+  letter-spacing: 0.5px; border-bottom: 1px solid var(--border);
+}
+.table td { padding: 12px; border-bottom: 1px solid var(--bg); }
+.table tr:last-child td { border-bottom: none; }
+.table tbody tr:hover td { background: var(--bg); }
+
+/* ── DOSE SUMMARY ─────────────────────────────────────────── */
+.dose-summary { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-bottom: 24px; }
+.dose-box { background: var(--bg); border-radius: 10px; padding: 16px; }
+.dose-box-label { font-size: 11px; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.4px; margin-bottom: 6px; }
+.dose-box-value { font-size: 22px; font-weight: 700; }
+.dose-box-unit  { font-size: 12px; font-weight: 500; color: var(--text-secondary); margin-left: 2px; }
+
+/* ── PATIENT HEADER ───────────────────────────────────────── */
+.patient-header {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 24px; margin-bottom: 20px;
+  display: flex; align-items: flex-start; justify-content: space-between; gap: 20px;
+}
+.patient-header-info { flex: 1; }
+.patient-header-name { font-size: 20px; font-weight: 700; margin-bottom: 4px; }
+.patient-header-meta { font-size: 13px; color: var(--text-secondary); display: flex; gap: 16px; flex-wrap: wrap; }
+
+/* ── MODAL ────────────────────────────────────────────────── */
+.modal-overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.45);
+  z-index: 200; display: flex; align-items: center; justify-content: center; padding: 20px;
+}
+.modal {
+  background: var(--white); border-radius: 14px; padding: 28px;
+  width: 100%; max-width: 480px; max-height: 90vh; overflow-y: auto;
+}
+.modal-title { font-size: 18px; font-weight: 700; margin-bottom: 20px; }
+
+/* ── ALERTS ───────────────────────────────────────────────── */
+.alert { padding: 12px 16px; border-radius: var(--radius-sm); font-size: 13px; margin-bottom: 16px; }
+.alert-error   { background: var(--danger-light);  color: var(--danger);  }
+.alert-success { background: var(--success-light); color: var(--success); }
+.alert-warning { background: var(--warning-light); color: var(--warning); }
+
+/* ── MISC ─────────────────────────────────────────────────── */
+.back-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  color: var(--text-secondary); font-size: 13px; font-weight: 600;
+  cursor: pointer; background: none; border: none;
+  padding: 0; margin-bottom: 20px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+.back-btn:hover { color: var(--primary); }
+
+.divider { border: none; border-top: 1px solid var(--border); margin: 20px 0; }
+
+.empty { text-align: center; padding: 48px 20px; color: var(--text-muted); }
+.empty-icon { font-size: 40px; margin-bottom: 12px; opacity: 0.4; }
+.empty-text { font-size: 14px; }
+
+.loading {
+  display: flex; align-items: center; justify-content: center;
+  padding: 60px; color: var(--text-muted); font-size: 14px; gap: 10px;
+}
+
+/* ── SPINNER ──────────────────────────────────────────────── */
+@keyframes spin { to { transform: rotate(360deg); } }
+.spinner {
+  width: 20px; height: 20px;
+  border: 2px solid var(--border);
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+/* ── SCROLLBAR ────────────────────────────────────────────── */
+::-webkit-scrollbar       { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 99px; }
