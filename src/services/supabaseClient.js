@@ -43,19 +43,19 @@ let _mockPacientes = [
   {
     id: "p1", nome: "João Antonio Costa", telefone: "85998672354",
     cpf: "12345678909", total_ml: 50, data_inicio: "2024-01-10",
-    medicamento: "Mounjaro", observacao: "Sem restrições",
+    medicamento: "Tirzepatida", observacao: "Sem restrições",
     status: "Em andamento", created_at: new Date("2024-01-10").toISOString(),
   },
   {
     id: "p2", nome: "Maria Fernanda Silva", telefone: "85987654321",
     cpf: "98765432100", total_ml: 40, data_inicio: "2024-02-01",
-    medicamento: "Ozempic", observacao: "",
+    medicamento: "Tirzepatida", observacao: "",
     status: "Em andamento", created_at: new Date("2024-02-01").toISOString(),
   },
   {
     id: "p3", nome: "Carlos Eduardo Lima", telefone: "85912345678",
     cpf: "11122233396", total_ml: 30, data_inicio: "2024-01-05",
-    medicamento: "Mounjaro", observacao: "Alérgico a penicilina",
+    medicamento: "Tirzepatida, observacao: "Alérgico a penicilina",
     status: "Concluído", created_at: new Date("2024-01-05").toISOString(),
   },
 ];

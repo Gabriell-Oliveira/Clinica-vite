@@ -60,7 +60,7 @@ export default function Dashboard({ pacientes, doses }) {
         {/* Por medicamento */}
         <div className="card">
           <div style={{ fontSize: 15, fontWeight: 700, marginBottom: 16 }}>📊 Por medicamento</div>
-          {["Ozempic"].map(med => { //"Mounjaro", 
+          {["Tirzepatida"].map(med => { //"Mounjaro", 
             const count = pacientes.filter(p => p.medicamento === med).length;
             const pct = total > 0 ? Math.round((count / total) * 100) : 0;
             return (

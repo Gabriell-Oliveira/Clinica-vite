@@ -341,7 +341,7 @@ export default function Cadastro({ onSalvar, onCancelar }) {
               onChange={e => set("medicamento", e.target.value)}
             >
               {/* <option value="Mounjaro">Mounjaro</option> */}
-              <option value="Ozempic">Ozempic</option>
+              <option value="Ozempic">Tirzepatida</option>
             </select>
           </F>
 
