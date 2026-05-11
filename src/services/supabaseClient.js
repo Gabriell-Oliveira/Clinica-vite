@@ -55,7 +55,7 @@ let _mockPacientes = [
   {
     id: "p3", nome: "Carlos Eduardo Lima", telefone: "85912345678",
     cpf: "11122233396", total_ml: 30, data_inicio: "2024-01-05",
-    medicamento: "Tirzepatida, observacao: "Alérgico a penicilina",
+    medicamento: "Tirzepatida", observacao: "Alérgico a penicilina",
     status: "Concluído", created_at: new Date("2024-01-05").toISOString(),
   },
 ];
